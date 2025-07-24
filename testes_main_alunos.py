@@ -1,3 +1,5 @@
+#Ricardo Azevedo 24/07/2025
+
 import unittest
 import math
 from main import calculadora, calculadora_v2, calculadora_v3, calculadora_v4
