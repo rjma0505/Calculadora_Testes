@@ -8,7 +8,7 @@ class TestCalculadora(unittest.TestCase):
     def teste_operacoes_basicas(self):
         # Teste operações básicas de cada operador + - * / % ^
         self.assertEqual(calculadora(2, 3, '+'), 5)
-
+        
     def teste_v2_operacoes(self):
         # Teste operações básicas de cada operador + - * / % ^
         self.assertEqual(calculadora_v2(2, 3, '+'), 5)
@@ -25,6 +25,12 @@ class TestCalculadora(unittest.TestCase):
         # Teste divisão por zero operador para todas versões / %
         self.assertTrue(math.isnan(calculadora(5, 0, '/')))
         self.assertTrue(math.isnan(calculadora(5, 0, '%')))
+        self.assertTrue(math.isnan(calculadora_v2(5, 0, '/')))
+        self.assertTrue(math.isnan(calculadora_v2(5, 0, '%')))
+        self.assertTrue(math.isnan(calculadora_v3(5, 0, '/')))
+        self.assertTrue(math.isnan(calculadora_v3(5, 0, '%')))
+        self.assertTrue(math.isnan(calculadora_v4(5, 0, '/')))
+        self.assertTrue(math.isnan(calculadora_v4(5, 0, '%')))
 
         # Teste operador inválido - fazer três testes para todas as versões
         self.assertTrue(math.isnan(calculadora(2, 3, '$')))
@@ -38,6 +44,8 @@ class TestCalculadora(unittest.TestCase):
 
         # Teste números negativos - fazer 3 testes para todas as versões
         self.assertEqual(calculadora(-2, 3, '*'), -6)
+        self.assertEqual(func(-6, 3, '/'), -2.0)
+        self.assertEqual(func(-7, 3, '%'), 2.0)
 
         # Teste números negativos com divisão e módulo, testar para todas as versões
         self.assertTrue(calculadora(-6, 3, '/'), -2.0)
@@ -48,6 +56,7 @@ class TestCalculadora(unittest.TestCase):
 
         # Teste números negativos com exponenciação de zero, testar para todas as versões
         self.assertEqual(calculadora(0, 3, '^'), 0)
+        
 
 
 if __name__ == '__main__':
